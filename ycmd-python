@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# The name of this script /must/ end with 'python', else YouCompleteMe will not
+# use this as the server.
+
+# Remove the path to ycmd, as we are using our own.
+shift
+
+# We use :
+#  --network=host so that our Vim instance can contact our containerized ycmd.
+#  --rm to kill the container once we're done with it.
+#  --volume=${HOME}:${HOME} to pick up our code (and .ycm_extra_conf.py).
+#  --volume=/tmp:/tmp to write to ycmd log files.
+docker run \
+	--network=host \
+	--rm \
+	--volume="${HOME}:${HOME}" \
+	--volume=/tmp:/tmp \
+	alexandrecarlton/ycmd \
+		"$@"
