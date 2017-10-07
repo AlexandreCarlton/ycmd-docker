@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+jobs:
+  include:
+    - stage: Build Docker image 'ycmd'
+      script:
+        - make build
