@@ -43,7 +43,7 @@ SERVER_IDLE_SUICIDE_SECONDS = 10800  # 3 hours
 MAX_SERVER_WAIT_TIME_SECONDS = 10
 
 # Set this to True to see ycmd's output interleaved with the client's
-INCLUDE_YCMD_OUTPUT = False
+INCLUDE_YCMD_OUTPUT = True
 DEFINED_SUBCOMMANDS_HANDLER = '/defined_subcommands'
 CODE_COMPLETIONS_HANDLER = '/completions'
 COMPLETER_COMMANDS_HANDLER = '/run_completer_command'
