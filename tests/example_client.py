@@ -40,7 +40,7 @@ from enum import Enum
 HMAC_HEADER = 'X-Ycm-Hmac'
 HMAC_SECRET_LENGTH = 16
 SERVER_IDLE_SUICIDE_SECONDS = 10800  # 3 hours
-MAX_SERVER_WAIT_TIME_SECONDS = 5
+MAX_SERVER_WAIT_TIME_SECONDS = 10
 
 # Set this to True to see ycmd's output interleaved with the client's
 INCLUDE_YCMD_OUTPUT = False
