@@ -12,7 +12,7 @@ jobs:
     - stage: Build Docker image 'ycmd'
       script:
         - make build
-    - stage: Test connection with example client
-      script:
-        - pip install requests
-        - make test
+    # - stage: Test connection with example client
+    #   script:
+    #     - pip install requests
+    #     - make test
