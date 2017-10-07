@@ -8,3 +8,6 @@ jobs:
     - stage: Build Docker image 'ycmd'
       script:
         - make build
+    - stage: Test connection with example client
+      script:
+        - make test

@@ -9,3 +9,7 @@ build:
 		--tag=$(IMAGE_NAME) \
 		.
 .PHONY: build
+
+test:
+	python3 tests/example_client.py
+.PHONY: test
