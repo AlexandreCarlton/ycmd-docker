@@ -18,7 +18,4 @@ RUN python3 build.py \
       --clang-completer \
       --system-libclang
 
-# Just to test that it actually works.
-RUN apk --no-cache add postgresql-dev
-
 ENTRYPOINT ["/usr/bin/python3", "/ycmd/ycmd"]
