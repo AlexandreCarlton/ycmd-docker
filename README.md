@@ -52,7 +52,7 @@ need to be changed), else `YouCompleteMe` will refuse to launch it.
 fails to contact the launched Docker container.
 
 Emacs integration with `ycmd` is provided through [`emacs-ycmd`](https://github.com/abingham/emacs-ycmd).
-[Spacemacs](http://spacemacs.org) provides this package through its [`ycmd` layer](https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Btools/ycmd),
+[Spacemacs](http://spacemacs.org) provides this package through its [`ycmd` layer](https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Btools/ycmd).
 
 To use our container here, we override `ycmd-server-command` to use our binary:
 
@@ -67,4 +67,4 @@ be necessary to use `file-truename` to expand it.
 ## Caveats
 
 You will not be able to jump to a file that is located only inside the
-container, as Vim will not be able to find it in the host filesystem.
+container, as your editor will not be able to find it in the host filesystem.
