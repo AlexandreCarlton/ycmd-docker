@@ -3,8 +3,10 @@
 # The name of this script /must/ end with 'python', else YouCompleteMe will not
 # use this as the server.
 
-# Remove the path to ycmd, as we are using our own.
-shift
+# Remove the path to ycmd if given, as we are using our own.
+if [ -d "$1" ]; then
+  shift
+fi
 
 # We use :
 #  --network=host so that our Vim instance can contact our containerized ycmd.
