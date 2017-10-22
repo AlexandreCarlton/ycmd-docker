@@ -66,5 +66,24 @@ be necessary to use `file-truename` to expand it.
 
 ## Caveats
 
+### Python completion
+
+`YouCompleteMe` uses [`jedi`](https://github.com/davidhalter/jedi) for Python
+semantic completion. By default, it uses the same python interpreter used to
+run `ycmd` (which in the example image is `/usr/bin/python3`).
+
+In order to capture completions for third-party libraries found in a
+virtual environment, one can tweak their `.vimrc` to point to the currently
+active python:
+
+```vim
+let g:ycm_python_binary_path = 'python'
+```
+
+`ycmd-python` will automatically pick this up if the activated virtual
+environment lies in `$HOME`.
+
+### `:YcmCompleter GoTo`
+
 You will not be able to jump to a file that is located only inside the
 container, as your editor will not be able to find it in the host filesystem.

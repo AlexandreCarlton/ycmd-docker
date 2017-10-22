@@ -14,9 +14,9 @@ fi
 #  --volume=${HOME}:${HOME} to pick up our code (and .ycm_extra_conf.py).
 #  --volume=/tmp:/tmp to write to ycmd log files.
 docker run \
-	--network=host \
-	--rm \
-	--volume="${HOME}:${HOME}" \
-	--volume=/tmp:/tmp \
-	alexandrecarlton/ycmd \
-		"$@"
+  --network=host \
+  --rm \
+  --volume="${HOME}:${HOME}" \
+  --volume=/tmp:/tmp \
+  alexandrecarlton/ycmd \
+    "$@"
