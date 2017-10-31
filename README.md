@@ -31,7 +31,7 @@ Normally, [`YouCompleteMe`](https://github.com/Valloric/YouCompleteMe) fires up
 [`ycmd` folder](https://github.com/Valloric/ycmd/tree/master/ycmd) (which
 essentially invokes the contained [`__main__.py`](https://github.com/Valloric/ycmd/blob/master/ycmd/__main__.py)).
 We will configure [`YouCompleteMe`](https://github.com/Valloric/YouCompleteMe) to instead fire up our own Docker container
-by fooling it into thinking our script [`ycmd-python`](`ycmd-python`) is the Python
+by fooling it into thinking our script [`ycmd-python`](ycmd-python) is the Python
 server interpreter (when it really just launches our own dockerized [`ycmd`](https://github.com/Valloric/ycmd)
 instead).
 
@@ -75,7 +75,7 @@ To use our container here, we override `ycmd-server-command` to use our binary:
 (setq ycmd-server-command '("ycmd-python")')
 ```
 
-There does not appear to be any restriction on the name of [`ycmd-python`](`ycmd-python`),
+There does not appear to be any restriction on the name of [`ycmd-python`](ycmd-python),
 though filename expansion is not supported for characters like `~`, so it may
 be necessary to use `file-truename` to expand it.
 
@@ -96,7 +96,7 @@ active python:
 let g:ycm_python_binary_path = 'python'
 ```
 
-`ycmd-python` will automatically pick this up if the activated virtual
+[`ycmd-python`](ycmd-python) will automatically pick this up if the activated virtual
 environment lies in `$HOME`.
 
 ### `:YcmCompleter GoTo`
