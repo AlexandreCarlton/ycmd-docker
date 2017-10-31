@@ -14,5 +14,5 @@ jobs:
         - make build
     # - stage: Test connection with example client
     #   script:
-        - pip install requests
+        - pip install httpie requests
         - make test
