@@ -50,7 +50,6 @@ COMPLETER_COMMANDS_HANDLER = '/run_completer_command'
 EVENT_HANDLER = '/event_notification'
 EXTRA_CONF_HANDLER = '/load_extra_conf_file'
 DIR_OF_THIS_SCRIPT = os.path.dirname( os.path.abspath( __file__ ) )
-PATH_TO_YCMD = os.path.join( DIR_OF_THIS_SCRIPT, '..', 'ycmd' )
 PATH_TO_EXTRA_CONF = os.path.join( DIR_OF_THIS_SCRIPT, '.ycm_extra_conf.py' )
 PATH_TO_YCMD_PYTHON = os.path.join(DIR_OF_THIS_SCRIPT, '..', 'ycmd-python')
 
@@ -84,7 +83,7 @@ class YcmdHandle( object ):
 
     server_port = GetUnusedLocalhostPort()
     ycmd_args = [ PATH_TO_YCMD_PYTHON,
-                  PATH_TO_YCMD,
+                  '.', # It doesn't matter what this is, it will be swallowed.
                   '--port={0}'.format( server_port ),
                   '--options_file={0}'.format( options_file.name ),
                   '--idle_suicide_seconds={0}'.format(
