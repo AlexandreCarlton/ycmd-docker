@@ -18,4 +18,4 @@ RUN python3 build.py \
       --clang-completer \
       --system-libclang
 
-ENTRYPOINT ["/usr/bin/python3", "/ycmd/ycmd"]
+ENTRYPOINT ["/usr/bin/python3", "/ycmd/ycmd", "--host", "0.0.0.0"]

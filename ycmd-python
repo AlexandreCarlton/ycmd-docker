@@ -8,13 +8,21 @@ if [ -d "$1" ]; then
   shift
 fi
 
-# We use :
-#  --network=host so that our Vim instance can contact our containerized ycmd.
+get_arg() {
+	key="$1"
+	shift
+	echo "$@" | sed -r "s/.*--${key}=([^ ]+).*/\1/"
+}
+
+port="$(get_arg port "$@")"
+
+# We use:
+#  --publish=<port>:<port> so we communicate with ycmd
 #  --rm to kill the container once we're done with it.
 #  --volume=${HOME}:${HOME} to pick up our code (and .ycm_extra_conf.py).
 #  --volume=/tmp:/tmp to write to ycmd log files.
 docker run \
-  --network=host \
+  --publish="${port}:${port}" \
   --rm \
   --volume="${HOME}:${HOME}" \
   --volume=/tmp:/tmp \
