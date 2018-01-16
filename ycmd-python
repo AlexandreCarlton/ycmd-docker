@@ -15,16 +15,23 @@ get_arg() {
 }
 
 port="$(get_arg port "$@")"
-
+options_file="$(get_arg options_file "$@")"
+idle_suicide_seconds="$(get_arg idle_suicide_seconds "$@")"
 # We use:
 #  --publish=<port>:<port> so we communicate with ycmd
 #  --rm to kill the container once we're done with it.
 #  --volume=${HOME}:${HOME} to pick up our code (and .ycm_extra_conf.py).
-#  --volume=/tmp:/tmp to write to ycmd log files.
+#  --volume=<options_file>:<options_file>:ro to set up the server with the info it needs to accept requests from the client.
+# --host=0.0.0.0 since Docker desires that we bind servers to listen on this address.
+
 docker run \
-  --publish="${port}:${port}" \
+  --name="ycmd-$$" \
   --rm \
+  --publish="${port}:${port}" \
   --volume="${HOME}:${HOME}" \
-  --volume=/tmp:/tmp \
+  --volume="${options_file}:${options_file}:ro" \
   alexandrecarlton/ycmd \
-    "$@"
+    --host='0.0.0.0' \
+    --port="${port}" \
+    --options_file="${options_file}" \
+    --idle_suicide_seconds="${idle_suicide_seconds}"
