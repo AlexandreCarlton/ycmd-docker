@@ -79,6 +79,57 @@ There does not appear to be any restriction on the name of [`ycmd-python`](ycmd-
 though filename expansion is not supported for characters like `~`, so it may
 be necessary to use `file-truename` to expand it.
 
+## Diagnostics
+
+### Locating the container instance
+A typical YouCompleteMe instance will display the following diagnostics with
+`:YcmDebugInfo`:
+
+```
+Printing YouCompleteMe debug information...
+...
+-- Server running at: http://127.0.0.1:8888
+-- Server process ID: 123456
+...
+```
+
+Normally we would use the process ID to locate the running instance and monitor
+it.
+However, as we are using docker to run this, we cannot use this method.
+To make this easier for the user, the containers launched using [`ycmd-python`](ycmd-python)
+will have the format `ycmd-<pid>`, so that this will match what we see in the
+diagnostic information.
+In this instance, we would look for the container `ycmd-12345` using
+`docker ps -a`.
+
+### Retrieving logs
+A regular installation of YouCompleteMe will start a server that logs to
+several files, which can be inspected using `:YcmDebugInfo`:
+
+```
+Printing YouCompleteMe debug information...
+...
+-- Server running at: http://127.0.0.1:8888
+...
+-- Server logfiles:
+--   /tmp/ycmd_8888_stdout_abcdefgh.log
+--   /tmp/ycmd_8888_stderr_ijklmnop.log
+...
+```
+
+However, on a long running server this will result in log files that may never
+be cleaned up.
+
+To resolve this, we do not copy across the arguments provided to the `stdout`
+and `stderr` options so that `ycmd` will log to `/dev/stdout` and `/dev/stderr`
+respectively, and clean this up when we are done with them.
+To retrieve them, we can use `docker logs` on the particular instance that we
+want (using the process ID as described above).
+
+Note that [`YouCompleteMe` will still create these files regardless of whether
+they end up being used](https://github.com/Valloric/YouCompleteMe/blob/28292f0f62e6352111b694ce8753bf739b50fb40/python/ycm/youcompleteme.py#L175),
+though they will remain empty.
+
 ## Caveats
 
 ### Python completion
