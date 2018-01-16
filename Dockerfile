@@ -1,12 +1,17 @@
-FROM alpine:3.6
+FROM ubuntu:17.10
 
-RUN apk --no-cache add \
-      build-base \
+RUN apt-get update && \
+    apt-get install -y \
+      cargo \
       cmake \
-      clang-dev \
       git \
-      python3-dev \
-      ninja
+      golang \
+      libclang-dev \
+      mono-complete \
+      ninja-build \
+      node-typescript \
+      npm \
+      python3-dev
 
 WORKDIR /ycmd
 ARG YCMD_REVISION
@@ -16,6 +21,10 @@ RUN git clone https://github.com/Valloric/ycmd.git /ycmd \
 
 RUN python3 build.py \
       --clang-completer \
+      --cs-completer \
+      --go-completer \
+      --js-completer \
+      --rust-completer \
       --system-libclang
 
-ENTRYPOINT ["/usr/bin/python3", "/ycmd/ycmd", "--host", "0.0.0.0"]
+ENTRYPOINT ["/usr/bin/python3", "/ycmd/ycmd"]
