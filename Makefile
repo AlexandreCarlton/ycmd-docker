@@ -1,5 +1,5 @@
 IMAGE_NAME := alexandrecarlton/ycmd
-YCMD_REVISION := 2f698d7
+YCMD_REVISION := 58ccfde
 
 all: build
 
