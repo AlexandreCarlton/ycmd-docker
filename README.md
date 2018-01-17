@@ -38,9 +38,9 @@ instead).
 ### Docker
 
 The [`Dockerfile`](Dockerfile) provided is only intended as an example (though
-it can be used for basic C/C++ completion).
-The parent image [`alpine`](https://hub.docker.com/_/alpine/) should instead be
-replaced with the build image, and subsequently [`apk`](https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management)
+it can be used for basic completion).
+The parent image [`ubuntu`](https://hub.docker.com/_/ubuntu/) should instead be
+replaced with the build image, and subsequently [`apt-get`](https://linux.die.net/man/8/apt-get)
 with the corresponding package manager for that image.
 
 ### Vim
