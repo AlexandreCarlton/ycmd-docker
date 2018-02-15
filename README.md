@@ -48,7 +48,7 @@ with the corresponding package manager for that image.
 We copy the [`ycmd-python`](ycmd-python) script somewhere into our `$PATH`,
 tweaking the image name as necessary.
 
-We then override `g:ycm_python_server_interpreter` to launch our own container,
+We then override `g:ycm_server_python_interpreter` to launch our own container,
 using an image which has both our dependencies (headers, libraries, etc) and
 [`ycmd`](https://github.com/Valloric/ycmd):
 
