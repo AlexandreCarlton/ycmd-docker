@@ -89,7 +89,7 @@ A typical YouCompleteMe instance will display the following diagnostics with
 Printing YouCompleteMe debug information...
 ...
 -- Server running at: http://127.0.0.1:8888
--- Server process ID: 123456
+-- Server process ID: 12345
 ...
 ```
 
@@ -154,3 +154,17 @@ environment lies in `$HOME`.
 
 You will not be able to jump to a file that is located only inside the
 container, as your editor will not be able to find it in the host filesystem.
+
+## Updating
+
+Each version of [`YouCompleteMe`](https://github.com/Valloric/YouCompleteMe) is
+designed for a particular [`ycmd`](https://github.com/Valloric/ycmd) revision.
+As such, every time we update our `YouCompleteMe` instance this image should
+also be updated accordingly.
+
+This is done by tweaking the `YCMD_REVISION` variable in the [Makefile](Makefile)
+to match the [corresponding version used in `YouCompleteMe`](https://github.com/Valloric/YouCompleteMe/tree/master/third_party).
+
+Furthermore, we should transfer any differences in the original [`examples/example_client.py`](https://github.com/Valloric/ycmd/blob/master/examples/example_client.py)
+and the samples found in [`examples/samples`](https://github.com/Valloric/ycmd/tree/master/examples/samples)
+across into our repository.
