@@ -4,6 +4,7 @@ RUN apt-get update && \
     apt-get install -y \
       cargo \
       cmake \
+      default-jdk-headless \
       git \
       golang \
       libclang-dev \
@@ -23,6 +24,7 @@ RUN python3 build.py \
       --clang-completer \
       --cs-completer \
       --go-completer \
+      --java-completer \
       --js-completer \
       --rust-completer \
       --system-libclang
