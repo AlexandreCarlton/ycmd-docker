@@ -9,9 +9,9 @@ if [ -d "$1" ]; then
 fi
 
 get_arg() {
-	key="$1"
-	shift
-	echo "$@" | sed -r "s/.*--${key}=([^ ]+).*/\1/"
+  key="$1"
+  shift
+  echo "$@" | sed -r "s/.*--${key}=([^ ]+).*/\1/"
 }
 
 port="$(get_arg port "$@")"
@@ -22,7 +22,7 @@ idle_suicide_seconds="$(get_arg idle_suicide_seconds "$@")"
 #  --rm to kill the container once we're done with it.
 #  --volume=${HOME}:${HOME} to pick up our code (and .ycm_extra_conf.py).
 #  --volume=<options_file>:<options_file>:ro to set up the server with the info it needs to accept requests from the client.
-# --host=0.0.0.0 since Docker desires that we bind servers to listen on this address.
+#  --host=0.0.0.0 since Docker desires that we bind servers to listen on this address.
 
 docker run \
   --name="ycmd-$$" \
