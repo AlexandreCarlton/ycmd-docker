@@ -1,7 +1,6 @@
 # ycmd-docker
 
-[![Build
-Status](https://travis-ci.org/AlexandreCarlton/ycmd-docker.svg?branch=master)](https://travis-ci.org/AlexandreCarlton/ycmd-docker)
+[![Build Status](https://travis-ci.org/AlexandreCarlton/ycmd-docker.svg?branch=master)](https://travis-ci.org/AlexandreCarlton/ycmd-docker)
 
 An example of running a containerised [`ycmd`](https://github.com/Valloric/ycmd) to:
  - obviate the need to build `ycm_core.so`.
@@ -58,7 +57,7 @@ let g:ycm_server_python_interpreter = 'ycmd-python'
 ```
 
 It is imperative that the name of [`ycmd-python`](ycmd-python) ends with
-`python` (should it need to be changed), else [`YouCompleteMe`](https://github.com/Valloric/YouCompleteMe)]
+`python` (should it need to be changed), else [`YouCompleteMe`](https://github.com/Valloric/YouCompleteMe)
 will refuse to launch it.
 
 ### Emacs / Spacemacs
