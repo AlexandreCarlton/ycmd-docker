@@ -11,9 +11,8 @@ jobs:
   include:
     - stage: Build Docker image 'ycmd'
       script:
-        - make build
-    # - stage: Test connection with example client
-    #   script:
+        - make image
+
         - pip install httpie requests
         - make test
 
