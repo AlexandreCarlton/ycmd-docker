@@ -5,7 +5,10 @@ VCS_REF := $(shell git rev-parse --short HEAD)
 
 all: image
 
-image:
+image: ycmd-image.tar
+.PHONY: image
+
+ycmd-image.tar:
 	docker build \
 		--build-arg=YCMD_REVISION=$(YCMD_REVISION) \
 		--label org.label-schema.build-date="$(shell date --rfc-3339=seconds)" \
