@@ -25,8 +25,10 @@ push: ycmd-image.tar
 	docker load --input="ycmd-image.tar"
 	docker tag $(IMAGE_NAME):build $(IMAGE_NAME):$(VCS_REF)
 	docker tag $(IMAGE_NAME):build $(IMAGE_NAME):$(YCMD_REVISION)
+	docker tag $(IMAGE_NAME):build $(IMAGE_NAME):latest
 	docker push $(IMAGE_NAME):$(VCS_REF)
 	docker push $(IMAGE_NAME):$(YCMD_REVISION)
+	docker push $(IMAGE_NAME):latest
 .PHONY: push
 
 test:
