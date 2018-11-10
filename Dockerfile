@@ -16,9 +16,10 @@ RUN apt-get update && \
 
 WORKDIR /ycmd
 ARG YCMD_REVISION
-RUN git clone https://github.com/Valloric/ycmd.git /ycmd \
-    && git checkout "${YCMD_REVISION}" \
-    && git submodule update --init --recursive
+RUN git clone https://github.com/Valloric/ycmd.git /ycmd && \
+    git checkout "${YCMD_REVISION}" && \
+    git submodule update --init --recursive && \
+    rm -rf /ycmd/.git
 
 RUN python3 build.py \
       --clang-completer \
