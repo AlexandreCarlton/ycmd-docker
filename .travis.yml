@@ -13,7 +13,7 @@ jobs:
       script:
         - make image
 
-        - pip install httpie requests
+        - pip install -r tests/requirements.txt
         - make test
 
         # We set these via the Travis CI website.

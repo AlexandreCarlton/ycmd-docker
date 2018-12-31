@@ -1,5 +1,5 @@
 IMAGE_NAME := alexandrecarlton/ycmd
-YCMD_REVISION := ae8a33f
+YCMD_REVISION := 0e999db
 
 VCS_REF := $(shell git rev-parse --short HEAD)
 
